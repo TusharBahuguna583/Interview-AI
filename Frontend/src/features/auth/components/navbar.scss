@@ -1,0 +1,116 @@
+:root {
+    --navbar-height: 60px;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--navbar-height);
+    background: rgba(26, 31, 39, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+
+    &__container {
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__brand {
+        margin: 0;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.7rem;
+        color: #f8fafc;
+        font-size: 1.05rem;
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: 0;
+
+        &::before {
+            content: 'AI';
+            width: 2rem;
+            height: 2rem;
+            border-radius: 0.55rem;
+            color: #fff;
+            background: linear-gradient(135deg, #ff2d78, #ff6199);
+            box-shadow: 0 10px 22px rgba(255, 45, 120, 0.24);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.72rem;
+            font-weight: 900;
+        }
+
+        &::after {
+            content: '';
+            width: 0.42rem;
+            height: 0.42rem;
+            border-radius: 50%;
+            background-color: #3fb950;
+            box-shadow: 0 0 0 4px rgba(63, 185, 80, 0.12);
+        }
+    }
+
+    &__user {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    &__username {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+    }
+
+    &__logout-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(239, 68, 68, 0.1);
+        color: #ef4444;
+        border: 1px solid rgba(239, 68, 68, 0.2);
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &:hover {
+            background: rgba(239, 68, 68, 0.2);
+            border-color: rgba(239, 68, 68, 0.4);
+            transform: translateY(-1px);
+        }
+
+        svg {
+            stroke-width: 2.5;
+        }
+    }
+}
+
+.protected-shell {
+    min-height: 100vh;
+    padding-top: var(--navbar-height);
+    background-color: #0d1117;
+}
+
+.protected-shell > .home-page,
+.protected-shell > .interview-page,
+.protected-shell > .loading-screen {
+    min-height: calc(100vh - var(--navbar-height));
+}
+
+.protected-shell > .ai-session-page {
+    height: calc(100vh - var(--navbar-height));
+    min-height: calc(100vh - var(--navbar-height));
+}
